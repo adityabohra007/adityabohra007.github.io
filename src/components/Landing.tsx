@@ -31,7 +31,7 @@ const Landing = () => {
 
 export const CodeBox = ({ code }) => {
   return (
-    <div className="mockup-code min-h-full">
+    <div className="mockup-code min-h-full" id="Receiption">
       <pre>
         <code>{code}</code>
       </pre>

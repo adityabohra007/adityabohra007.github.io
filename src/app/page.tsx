@@ -1,10 +1,30 @@
 "use client";
+import { ContactUs } from "@/components/Email";
 import Landing, { CodeBox } from "@/components/Landing";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
+import { useState } from "react";
 import { FaLinkedin } from "react-icons/fa6";
+
+const scrollToElement = (id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth" });
+  }
+};
 export default function Home() {
+  const [toast, setToast] = useState({ title: "", visible: false });
+  const param = useSearchParams();
   return (
     <>
+      {toast.visible && (
+        <div className="toast z-300">
+          <div className="alert alert-success">
+            <span>Mail sent successfully.</span>
+          </div>
+        </div>
+      )}
+
       {/* <button
         className="btn-primary"
         onClick={() => {
@@ -18,6 +38,33 @@ export default function Home() {
       >
         Toggle
       </button> */}
+      <section className=" md:w-7xl justify-evenly  mx-auto px-3 py-2 mt-7 flex flex-col md:flex-row  items-center border-2 border-b-4 rounded-lg border-gray-800">
+        <a
+          className="px-5 py-4 border-2 border-gray-700 rounded-xl"
+          href="#Receiption"
+        >
+          Reception
+        </a>
+        <a
+          className="px-5 py-4 border-2 border-gray-700 rounded-xl"
+          href="#Skills"
+        >
+          Skills
+        </a>
+        <a
+          className="px-5 py-4 border-2 border-gray-700 rounded-xl"
+          href="#About"
+        >
+          About
+        </a>
+        <a
+          className="px-5 py-4 border-2 border-gray-700 rounded-xl"
+          href="#Projects"
+        >
+          Projects
+        </a>
+        {/* <div>Skills,About Projects</div> */}
+      </section>
       <Landing />
       <section className=" md:w-6xl justify-evenly  mx-auto px-3 mt-7 flex flex-col md:flex-row  items-center">
         <button className="btn btn-primary  px-5 py-6 rounded-xl text-[16px]  ">
@@ -39,7 +86,10 @@ export default function Home() {
         </div>
       </section>
       {/* Tech knowledge */}
-      <div className="md:w-7xl mx-auto px-3 flex flex-col md:flex-row mt-7 gap-5 ">
+      <div
+        className="md:w-7xl mx-auto px-3 flex flex-col md:flex-row mt-7 gap-5 "
+        id="Skills"
+      >
         <section className="px-7 py-6 bg-accent rounded-xl flex-3/4 font-dm-sans font-semibold text-base-300">
           <span className="font-extrabold text-2xl font-kumbha-sans">
             Experience
@@ -122,7 +172,10 @@ export default function Home() {
           />
         </section>
       </div>
-      <div className="md:w-7xl  px-3 m-auto flex flex-col md:flex-row mt-7 gap-5">
+      <div
+        className="md:w-7xl  px-3 m-auto flex flex-col md:flex-row mt-7 gap-5"
+        id="About"
+      >
         <section className="flex-1/4">
           <CodeBox
             code={`class Skills(){
@@ -151,7 +204,10 @@ export default function Home() {
         </section>
       </div>
       <div className="md:w-7xl mx-auto px-3 flex mt-7 gap-5 ">
-        <section className="px-7 py-6 bg-accent rounded-xl flex-1 font-dm-sans font-semibold text-base-300">
+        <section
+          className="px-7 py-6 bg-accent rounded-xl flex-1 font-dm-sans font-semibold text-base-300"
+          id="Projects"
+        >
           <span className="font-extrabold text-2xl font-kumbha-sans">
             Personal Projects
           </span>
@@ -236,22 +292,7 @@ export default function Home() {
           <span className="font-extrabold text-2xl font-kumbha-sans">
             Contact
           </span>
-          <form className="flex flex-col mt-3 text-base-content">
-            <label className="mb-4">Email</label>
-            <input
-              type="text"
-              placeholder="Enter Email"
-              className="input mb-5 w-full"
-            />
-            <label className="mb-4">Message</label>
-            <textarea
-              onChange={() => {}}
-              className="textarea textarea-primary w-full"
-            ></textarea>
-            <button className="btn btn-info self-end mt-4 w-[100px] ">
-              Send
-            </button>
-          </form>
+          <ContactUs onEmailSuccess={setToast} />
         </section>
       </div>
     </>
