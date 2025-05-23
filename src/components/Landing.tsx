@@ -2,7 +2,7 @@ const Landing = () => {
   const experience = new Date().getFullYear() - 2020;
   const stack = ["Python(Django)", "Javascript(React.js)"];
   const code = ` 
-  class Person(){
+  class Person{
   constructor(){
     this.name = "Aditya Bohra";
     this.experience = new Date().getFullYear()-2020;
@@ -11,7 +11,8 @@ const Landing = () => {
 
   return (
     <>
-      <div className="px-5 py-3 flex-col md:flex-row flex justify-between md:w-7xl m-auto  ">
+      {/* Here need tp remove mt-10 and create new container of this and assign padding to it  */}
+      <div className=" px-5 py-3 flex-col md:flex-row flex justify-between md:w-7xl m-auto  ">
         <section className="   shadow-sm rounded-xl bg-primary px-8 py-6 text-primary-content flex-1  font-quicksand-sans font-semibold text-[22px]">
           My name is Aditya Bohra, I am a fullstack developer for {experience}+
           years.
@@ -31,7 +32,10 @@ const Landing = () => {
 
 export const CodeBox = ({ code }) => {
   return (
-    <div className="mockup-code min-h-full" id="Receiption">
+    <div
+      className="mockup-code min-h-full bg-base-300 text-amber-900"
+      id="Receiption"
+    >
       <pre>
         <code>{code}</code>
       </pre>

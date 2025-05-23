@@ -42,7 +42,7 @@ export default function RootLayout({
   }, []);
   const toggleTheme = () => {};
   return (
-    <html lang="en" data-theme="light">
+    <html lang="en" data-theme="light" className="scroll-smooth">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased base-200`}
       >

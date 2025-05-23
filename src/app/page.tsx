@@ -5,7 +5,45 @@ import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { FaLinkedin } from "react-icons/fa6";
-
+import { AiOutlineRobot } from "react-icons/ai";
+import { BiAtom } from "react-icons/bi";
+import { FiBookOpen } from "react-icons/fi";
+import { AiFillProject } from "react-icons/ai";
+const Navigation = () => {
+  return (
+    <section className=" md:w-7xl justify-evenly  mx-auto md:px-3 md:py-2 mt-7 flex  md:flex-row  items-center border-2 border-b-4 rounded-lg border-gray-800 fixed md:static bottom-0 w-full bg-base-300 text-accent z-200 ">
+      <a
+        className="hover:bg-accent-content p-2 md:px-5 md:py-4 md:border-2 md:border-gray-700 rounded-xl flex-1/4 flex justify-center md:gap-10"
+        href="#Receiption"
+      >
+        <AiOutlineRobot size={30} />
+        <span className="hidden md:block">Reception</span>
+      </a>
+      <a
+        className="hover:bg-accent-content p-2 md:px-5 md:py-4 md:border-2 md:border-gray-700 rounded-xl flex-1/4 flex justify-center md:gap-10"
+        href="#Skills"
+      >
+        <BiAtom size={30} />
+        <span className="hidden md:block">Skills</span>
+      </a>
+      <a
+        className="hover:bg-accent-content p-2 md:px-5 md:py-4 md:border-2 md:border-gray-700 rounded-xl flex-1/4 flex justify-center md:gap-10"
+        href="#About"
+      >
+        <FiBookOpen size={30} />
+        <span className="hidden md:block">About</span>
+      </a>
+      <a
+        className="hover:bg-accent-content  p-2 md:px-5 md:py-4 md:border-2 md:border-gray-700 rounded-xl flex-1/4 flex justify-center md:gap-10"
+        href="#Projects"
+      >
+        <AiFillProject size={30} />
+        <span className="hidden md:block">Projects</span>
+      </a>
+      {/* <div>Skills,About Projects</div> */}
+    </section>
+  );
+};
 const scrollToElement = (id) => {
   const element = document.getElementById(id);
   if (element) {
@@ -14,7 +52,6 @@ const scrollToElement = (id) => {
 };
 export default function Home() {
   const [toast, setToast] = useState({ title: "", visible: false });
-  const param = useSearchParams();
   return (
     <>
       {toast.visible && (
@@ -38,42 +75,19 @@ export default function Home() {
       >
         Toggle
       </button> */}
-      <section className=" md:w-7xl justify-evenly  mx-auto px-3 py-2 mt-7 flex flex-col md:flex-row  items-center border-2 border-b-4 rounded-lg border-gray-800">
-        <a
-          className="px-5 py-4 border-2 border-gray-700 rounded-xl"
-          href="#Receiption"
-        >
-          Reception
-        </a>
-        <a
-          className="px-5 py-4 border-2 border-gray-700 rounded-xl"
-          href="#Skills"
-        >
-          Skills
-        </a>
-        <a
-          className="px-5 py-4 border-2 border-gray-700 rounded-xl"
-          href="#About"
-        >
-          About
-        </a>
-        <a
-          className="px-5 py-4 border-2 border-gray-700 rounded-xl"
-          href="#Projects"
-        >
-          Projects
-        </a>
-        {/* <div>Skills,About Projects</div> */}
-      </section>
+      <Navigation />
       <Landing />
       <section className=" md:w-6xl justify-evenly  mx-auto px-3 mt-7 flex flex-col md:flex-row  items-center">
-        <button className="btn btn-primary  px-5 py-6 rounded-xl text-[16px]  ">
+        <a
+          className="btn btn-primary  px-5 py-6 rounded-xl text-[16px]  "
+          href="#Contact"
+        >
           Connect with Me
-        </button>
-        <button className="btn bg-accent md:ml-3 mt-4  px-5 py-6 rounded-xl text-[16px] ">
+        </a>
+        <button className="btn bg-accent md:ml-3 mt-4 md:mt-0 px-5 py-6 rounded-xl text-[16px]">
           Download my CV
         </button>
-        <div className="flex flex-[40%] justify-between mt-8 gap-10">
+        <div className="flex md:w-[300px] justify-between mt-8 md:mt-0 gap-10">
           <button className="btn btn-circle  bg-black ">
             <FaLinkedin className="size-25 p-2 " color="white" />
           </button>
@@ -87,7 +101,7 @@ export default function Home() {
       </section>
       {/* Tech knowledge */}
       <div
-        className="md:w-7xl mx-auto px-3 flex flex-col md:flex-row mt-7 gap-5 "
+        className="md:w-7xl mx-auto px-3  py-5 flex flex-col md:flex-row mt-7 gap-5 "
         id="Skills"
       >
         <section className="px-7 py-6 bg-accent rounded-xl flex-3/4 font-dm-sans font-semibold text-base-300">
@@ -162,28 +176,31 @@ export default function Home() {
         </section>
         <section className="flex-1/4">
           <CodeBox
-            code={`class Skills(){
+            code={`class Skills{
           constructor(){
           this.confirmed=[
           "Python","Django",
           "React.js","SQL",
-          "REST","Git"]}
+          "REST","Git"];
+            this.novice=[
+          "Node","Next.js",
+          "MongoDB"]
+          }
           }`}
           />
         </section>
       </div>
       <div
-        className="md:w-7xl  px-3 m-auto flex flex-col md:flex-row mt-7 gap-5"
+        className="md:w-7xl  px-3 py-5 m-auto flex flex-col md:flex-row mt-7 gap-5"
         id="About"
       >
         <section className="flex-1/4">
           <CodeBox
-            code={`class Skills(){
+            code={`class About{
           constructor(){
-          this.confirmed=["Python",
-          "Django",
-          "React.js","SQL",
-          "REST","Git"]}
+          this.education=[
+          "Computer Science Degree",
+          "Django","React.js"]}
           }`}
           />
         </section>
@@ -203,7 +220,7 @@ export default function Home() {
           </p>
         </section>
       </div>
-      <div className="md:w-7xl mx-auto px-3 flex mt-7 gap-5 ">
+      <div className="md:w-7xl mx-auto px-3 py-5 flex mt-7 gap-5 ">
         <section
           className="px-7 py-6 bg-accent rounded-xl flex-1 font-dm-sans font-semibold text-base-300"
           id="Projects"
@@ -246,7 +263,7 @@ export default function Home() {
         </section>
       </div>
       {/* Experience */}
-      <div className="md:w-7xl mx-auto px-3 flex flex-col md:flex-row mt-7 gap-5 mb-5">
+      <div className="md:w-7xl mx-auto px-3 py-5 flex flex-col md:flex-row mt-7 gap-5 mb-5">
         <section className="px-7 py-6 bg-accent rounded-xl font-dm-sans font-semibold text-base-300 flex-[70%] ">
           <span className="font-extrabold text-2xl font-kumbha-sans">
             Job Experience
@@ -265,7 +282,7 @@ export default function Home() {
         </section>
         <section className="flex-[30%]">
           <CodeBox
-            code={`class Skills(){
+            code={`class Skills{
           constructor(){
           this.confirmed=[
           "Python","Django",
@@ -276,19 +293,22 @@ export default function Home() {
         </section>
       </div>
       {/* Contact */}
-      <div className="md:w-7xl mx-auto px-3 flex-col md:flex-row flex mt-7 gap-5 mb-5">
+      <div className="md:w-7xl mx-auto px-3 py-5 flex-col md:flex-row flex mt-7 gap-5 mb-5 pb-20 md:pb-0">
         <section className="flex-[30%]">
           <CodeBox
-            code={`class Skills(){
+            code={`class Contact{
           constructor(){
-          this.confirmed=[
-          "Python","Django",
-          "React.js","SQL",
-          "REST","Git"]}
-          }`}
+          this.email='';
+          this.username='';
+          this.message='';
+          }
+        }`}
           />
         </section>
-        <section className="px-7 py-6 bg-accent rounded-xl font-dm-sans font-semibold text-base-300 flex-[70%] flex-col md:flex-row ">
+        <section
+          id="Contact"
+          className="px-7 py-6 bg-accent rounded-xl font-dm-sans font-semibold text-base-300 flex-[70%] flex-col md:flex-row "
+        >
           <span className="font-extrabold text-2xl font-kumbha-sans">
             Contact
           </span>
