@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Kumbh+Sans:wght@100..900&family=Quicksand:wght@300..700&display=swap');
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+@font-face {
+  font-family: "KumbhSans";
+  src: url("../../public/fonts/Kumbh_Sans/KumbhSans.ttf");
+}
+
+@font-face {
+  font-family: "QuickSand";
+  src: url("../../public/fonts/Quicksand/Quicksand-VariableFont_wght.ttf");
+}
+
+@font-face {
+  font-family: 'DMSans';
+  src: url("./../../public/fonts/DM_Sans/DMSans-VariableFont_opsz\,wght.ttf");
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+:root {
+  --font-dm-sans: "DM Sans", sans-serif;
+  --font-kumbha-sans: "Kumbh Sans", sans-serif;
+  --font-quicksand-sans: "Quicksand", sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  /* If you have --font-geist-sans and --font-geist-mono defined elsewhere, you can use them here. */
+  /* --font-sans: var(--font-geist-sans); */
+  /* --font-mono: var(--font-geist-mono); */
+}
+
+@theme {
+  --font-dm-sans: "DM Sans", sans-serif;
+  --font-kumbha-sans: "Kumbh Sans", sans-serif;
+  --font-quicksand-sans: "Quicksand", sans-serif;
+}
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
