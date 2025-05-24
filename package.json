@@ -2,7 +2,7 @@
   "name": "porfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://adityabohra007.github.io/adityabohra007.github.io",
+  "homepage": "https://adityabohra007.github.io",
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
