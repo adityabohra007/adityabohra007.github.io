@@ -9,15 +9,17 @@ import { AiOutlineRobot } from "react-icons/ai";
 import { BiAtom } from "react-icons/bi";
 import { FiBookOpen } from "react-icons/fi";
 import { AiFillProject } from "react-icons/ai";
+import { ImGithub } from "react-icons/im";
+import { FaRegFilePdf } from "react-icons/fa";
 const Navigation = () => {
   return (
     <section className=" md:w-7xl justify-evenly  mx-auto md:px-3 md:py-2 mt-7 flex  md:flex-row  items-center border-2 border-b-4 rounded-lg border-gray-800 fixed md:static bottom-0 w-full bg-base-300 text-accent z-200 ">
       <a
         className="hover:bg-accent-content p-2 md:px-5 md:py-4 md:border-2 md:border-gray-700 rounded-xl flex-1/4 flex justify-center md:gap-10"
-        href="#Receiption"
+        href="#Intro"
       >
         <AiOutlineRobot size={30} />
-        <span className="hidden md:block">Reception</span>
+        <span className="hidden md:block">Intro</span>
       </a>
       <a
         className="hover:bg-accent-content p-2 md:px-5 md:py-4 md:border-2 md:border-gray-700 rounded-xl flex-1/4 flex justify-center md:gap-10"
@@ -84,19 +86,32 @@ export default function Home() {
         >
           Connect with Me
         </a>
-        <button className="btn bg-accent md:ml-3 mt-4 md:mt-0 px-5 py-6 rounded-xl text-[16px]">
+        <a
+          className="btn bg-accent md:ml-3 mt-4 md:mt-0 px-5 py-6 rounded-xl text-[16px]"
+          href="/AdityaResume.pdf"
+          target="_blank"
+        >
+          <FaRegFilePdf />
           Download my CV
-        </button>
-        <div className="flex md:w-[300px] justify-between mt-8 md:mt-0 gap-10">
-          <button className="btn btn-circle  bg-black ">
+        </a>
+        <div className="flex md:w-[200px] justify-between mt-8 md:mt-0 gap-10">
+          <a
+            target="_blank"
+            href="https://linkedin.com/in/adityabohra619"
+            className="btn btn-circle  bg-black "
+          >
             <FaLinkedin className="size-25 p-2 " color="white" />
-          </button>
-          <button className="btn btn-circle  bg-black ">
+          </a>
+          <a
+            className="btn btn-circle  bg-black "
+            target="_blank"
+            href="https://github.com/adityabohra007"
+          >
+            <ImGithub className="size-25 p-2 " color="white" />
+          </a>
+          {/* <a className="btn btn-circle bg-black ">
             <FaLinkedin className="size-25 p-2 " color="white" />
-          </button>
-          <button className="btn btn-circle bg-black ">
-            <FaLinkedin className="size-25 p-2 " color="white" />
-          </button>
+          </a> */}
         </div>
       </section>
       {/* Tech knowledge */}
@@ -209,14 +224,13 @@ export default function Home() {
             About
           </span>
           <p className="font-quicksand-sans ">
-            After my degree in Computer Science. I started my developer role and
-            its been 4+ years. What I appreciate in programming is problem
-            solving and always trying to find them ost optimal solution. Today
-            my favourite frameworks are Django, React.js/NextJS. I also worked
-            on Node.js,PHP and many others.
+            After my degree in Computer Science.I started my career as a
+            developer over 4 years ago. What I appreciate in programming is
+            problem solving and always trying to find the most optimal solution.
+            Today my favourite frameworks are Django, React.js/NextJS. I also
+            worked on Node.js,PHP and many others.
             <br />
-            Apart from the code, I have other passions like playing
-            guitar,swimming.
+            Apart from coding, I enjoy playing guitar and swimming.
           </p>
         </section>
       </div>
@@ -264,14 +278,14 @@ export default function Home() {
       </div>
       {/* Experience */}
       <div className="md:w-7xl mx-auto px-3 py-5 flex flex-col md:flex-row mt-7 gap-5 mb-5">
-        <section className="px-7 py-6 bg-accent rounded-xl font-dm-sans font-semibold text-base-300 flex-[70%] ">
+        <section className="px-7 py-6 bg-primary rounded-xl font-dm-sans font-semibold text-base-300 flex-[70%] ">
           <span className="font-extrabold text-2xl font-kumbha-sans">
             Job Experience
           </span>
           <div className="flex gap-10 mt-10">
             <span className="flex-[20%]">2019-2023</span>
             <div className="flex-2/3">
-              <p className="font-kumbha-sans font-extrabold text-xl">
+              <p className="font-kumbha-sans font-extrabold text-xl text-">
                 Geekybuddha Technologies
               </p>
               <span className="font-medium">
@@ -282,12 +296,12 @@ export default function Home() {
         </section>
         <section className="flex-[30%]">
           <CodeBox
-            code={`class Skills{
+            code={`class Experience{
           constructor(){
-          this.confirmed=[
-          "Python","Django",
-          "React.js","SQL",
-          "REST","Git"]}
+          this.ex=[{'period':'2019-2023',
+          company:'Geekybuddha Technologies',
+          'techstack':'Django,React.js',
+          'title':'FullStack Python Developer '}]}
           }`}
           />
         </section>
@@ -312,7 +326,11 @@ export default function Home() {
           <span className="font-extrabold text-2xl font-kumbha-sans">
             Contact
           </span>
-          <ContactUs onEmailSuccess={(data)=>{setToast(data)}} />
+          <ContactUs
+            onEmailSuccess={(data) => {
+              setToast(data);
+            }}
+          />
         </section>
       </div>
     </>

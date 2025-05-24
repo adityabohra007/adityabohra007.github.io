@@ -12,7 +12,7 @@ const Landing = () => {
   return (
     <>
       {/* Here need tp remove mt-10 and create new container of this and assign padding to it  */}
-      <div className=" px-5 py-3 flex-col md:flex-row flex justify-between md:w-7xl m-auto  ">
+      <div className=" px-5 py-3 flex-col md:flex-row flex justify-between md:w-7xl m-auto  " id="Intro">
         <section className="   shadow-sm rounded-xl bg-primary px-8 py-6 text-primary-content flex-1  font-quicksand-sans font-semibold text-[22px]">
           My name is Aditya Bohra, I am a fullstack developer for {experience}+
           years.
@@ -37,7 +37,7 @@ export const CodeBox = ({ code }: CodeType) => {
   return (
     <div
       className="mockup-code min-h-full bg-base-300 text-amber-900"
-      id="Receiption"
+      
     >
       <pre>
         <code>{code}</code>
