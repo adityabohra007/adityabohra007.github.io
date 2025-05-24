@@ -1,14 +1,18 @@
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 
-export const ContactUs = ({ onEmailSuccess }) => {
-  const form = useRef();
+type EmailSuccess = {
+  onEmailSuccess: (data: { title: string; visible: boolean }) => void;
+};
 
-  const sendEmail = (e) => {
+export const ContactUs = ({ onEmailSuccess }: EmailSuccess) => {
+  const form = useRef<HTMLFormElement>(null);
+
+  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     emailjs
-      .sendForm("service_hmic5dn", "template_tqtoaf6", form.current, {
+      .sendForm("service_hmic5dn", "template_tqtoaf6", form.current!, {
         publicKey: "R4-RAM9I7MFnufbEe",
       })
       .then(

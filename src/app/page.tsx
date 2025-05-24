@@ -1,8 +1,8 @@
 "use client";
 import { ContactUs } from "@/components/Email";
 import Landing, { CodeBox } from "@/components/Landing";
-import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+// import Image from "next/image";
+// import { useSearchParams } from "next/navigation";
 import { useState } from "react";
 import { FaLinkedin } from "react-icons/fa6";
 import { AiOutlineRobot } from "react-icons/ai";
@@ -44,12 +44,12 @@ const Navigation = () => {
     </section>
   );
 };
-const scrollToElement = (id) => {
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth" });
-  }
-};
+// const scrollToElement = (id) => {
+//   const element = document.getElementById(id);
+//   if (element) {
+//     element.scrollIntoView({ behavior: "smooth" });
+//   }
+// };
 export default function Home() {
   const [toast, setToast] = useState({ title: "", visible: false });
   return (
@@ -312,7 +312,7 @@ export default function Home() {
           <span className="font-extrabold text-2xl font-kumbha-sans">
             Contact
           </span>
-          <ContactUs onEmailSuccess={setToast} />
+          <ContactUs onEmailSuccess={(data)=>{setToast(data)}} />
         </section>
       </div>
     </>

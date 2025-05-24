@@ -30,7 +30,10 @@ const Landing = () => {
   );
 };
 
-export const CodeBox = ({ code }) => {
+type CodeType = {
+  code: string;
+};
+export const CodeBox = ({ code }: CodeType) => {
   return (
     <div
       className="mockup-code min-h-full bg-base-300 text-amber-900"

@@ -1,8 +1,8 @@
 "use client";
-import type { Metadata } from "next";
+// import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,7 +28,7 @@ export default function RootLayout({
     if (document) {
       if (localStorage) {
         if (localStorage.getItem("theme")) {
-          let theme = localStorage.getItem("theme");
+          // let theme = localStorage.getItem("theme");
           document.documentElement.setAttribute(
             "data-theme",
             document.documentElement.getAttribute("data-theme") === "light"
@@ -40,7 +40,7 @@ export default function RootLayout({
       }
     }
   }, []);
-  const toggleTheme = () => {};
+  // const toggleTheme = () => {};
   return (
     <html lang="en" data-theme="light" className="scroll-smooth">
       <body
